@@ -8,22 +8,25 @@
 import UIKit
 import SDWebImage
 
-class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewDataSource {
+class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewDataSource , UISearchBarDelegate{
     
     @IBOutlet weak var tableView: UITableView!
     var sportName:String?
     var leagueArr : [League]?
+    var filterData : [League]?
     var networkIndecator : UIActivityIndicatorView!
     var leagueViewModel : LeagueViewModel!
     var placeHolderImg : UIImage?
-    
+    var isSearching = false
+    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
         leagueViewModel = LeagueViewModel()
-        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
         networkIndecator = UIActivityIndicatorView(style: .large)
         networkIndecator.color = UIColor.black
         networkIndecator.center = view.center
@@ -40,12 +43,18 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
        
        
     }
+    
+    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leagueArr?.count ?? 0
+        if isSearching{
+            return filterData?.count ?? 0
+        }else{
+            return leagueArr?.count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,13 +70,17 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
             placeHolderImg = UIImage(named: "tennis-2")
             
         }
-
-        cell.leagueImg.sd_setImage(with: URL(string: (leagueArr![indexPath.row].league_logo ?? "")), placeholderImage: placeHolderImg)
+        if isSearching{
+            cell.leagueImg.sd_setImage(with: URL(string: (filterData![indexPath.row].league_logo ?? "")), placeholderImage: placeHolderImg)
+            cell.leagueName.text = filterData![indexPath.row].league_name
+        }else{
+            cell.leagueImg.sd_setImage(with: URL(string: (leagueArr![indexPath.row].league_logo ?? "")), placeholderImage: placeHolderImg)
+            cell.leagueName.text = leagueArr![indexPath.row].league_name
+        }
         cell.leagueImg.layer.cornerRadius = cell.leagueImg.frame.width/2.17
         cell.leagueImg.clipsToBounds = true
         cell.leagueImg.layer.borderColor = UIColor.black.cgColor
         cell.leagueImg.layer.borderWidth = 2
-        cell.leagueName.text = leagueArr![indexPath.row].league_name
         return cell
     }
    
@@ -77,7 +90,18 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
         leaguedetailsVC.leagueID = leagueArr![indexPath.row].league_key
            self.navigationController?.pushViewController(leaguedetailsVC, animated: true)
     }
-    
+     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            isSearching = false
+            view.endEditing(true)
+            tableView.reloadData()
+        }else{
+            isSearching = true
+            filterData = leagueArr?.filter{$0.league_name!.uppercased().prefix(searchText.count) == searchText.uppercased()}
+            tableView.reloadData()
+        }
+    }
 
 }
 
