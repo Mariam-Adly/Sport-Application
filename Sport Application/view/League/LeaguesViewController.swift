@@ -63,13 +63,21 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
         }
 
         cell.leagueImg.sd_setImage(with: URL(string: (leagueArr![indexPath.row].league_logo ?? "")), placeholderImage: placeHolderImg)
+        cell.leagueImg.layer.cornerRadius = cell.leagueImg.frame.width/2.17
+        cell.leagueImg.clipsToBounds = true
+        cell.leagueImg.layer.borderColor = UIColor.black.cgColor
+        cell.leagueImg.layer.borderWidth = 2
         cell.leagueName.text = leagueArr![indexPath.row].league_name
         return cell
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        let leaguedetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
+        leaguedetailsVC.sportName = sportName
+        leaguedetailsVC.leagueID = leagueArr![indexPath.row].league_key
+           self.navigationController?.pushViewController(leaguedetailsVC, animated: true)
     }
     
+
 }
 
