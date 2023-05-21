@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324.4274809160305" y="-18.30985915492958"/>
+            <point key="canvasLocation" x="1144" y="-18"/>
         </scene>
         <!--All Sports View Controller-->
         <scene sceneID="Scq-gu-V3j">
@@ -175,6 +175,21 @@
             </objects>
             <point key="canvasLocation" x="5422.1374045801522" y="-18.30985915492958"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="1Gg-Qw-j2S">
+            <objects>
+                <viewController id="wJN-AA-ikr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OwD-fd-Xzs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QTp-lQ-w8J"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ev7-VI-53h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6123" y="-18"/>
+        </scene>
         <!--Favorites-->
         <scene sceneID="XbW-8v-eeC">
             <objects>
@@ -190,22 +205,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UI3-rK-UyF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1683" y="746"/>
-        </scene>
-        <!--Splash Tab Bar Controller-->
-        <scene sceneID="klY-bx-YS9">
-            <objects>
-                <viewController storyboardIdentifier="SplashTabBarController" id="KvU-Jl-yVj" customClass="SplashTabBarController" customModule="Sport_Application" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cuH-Bg-clJ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="c6t-pn-fRl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="HWa-sU-aQJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ND6-1S-aeB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7225.1908396946565" y="-300"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QMl-KG-2KU">
@@ -248,7 +247,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="onboardingCell" id="XOc-NH-7Sl" customClass="OnboardingCollectionViewCell" customModule="Sport_Application" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-20.666666666666668" width="393" height="612"/>
+                                        <rect key="frame" x="0.0" y="1.6666666666666667" width="393" height="612"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OWx-bg-yCr">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="612"/>
@@ -344,27 +343,10 @@
             </objects>
             <point key="canvasLocation" x="1947.3282442748091" y="-18.30985915492958"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="TcJ-HP-20c">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HZi-CQ-jt4" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1EF-Xp-1ja">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="IwT-TQ-bbl" kind="relationship" relationship="rootViewController" id="Wlg-g2-MWD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mSR-Ig-xCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1020.6106870229007" y="-18.30985915492958"/>
-        </scene>
         <!--Sports-->
         <scene sceneID="pOZ-1U-dB7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlG-49-X4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KUb-ow-rqh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sports" image="sportscourt.fill" catalog="system" id="QRJ-fa-1Fw"/>
                     <toolbarItems/>
@@ -377,7 +359,6 @@
                         <segue destination="I2b-E2-phb" kind="relationship" relationship="rootViewController" id="Hpy-6q-NyI"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rlG-49-X4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3753.4351145038167" y="-18.30985915492958"/>
         </scene>

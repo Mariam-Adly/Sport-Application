@@ -16,12 +16,3 @@ class Sport{
         self.sportImg = sportImg
     }
 }
-
-class LeagueItem{
-    var leagueName : String
-    var leagueImg : UIImage
-    init(leagueName: String, leagueImg: UIImage) {
-        self.leagueName = leagueName
-        self.leagueImg = leagueImg
-    }
-}
