@@ -8,7 +8,7 @@
 import Foundation
 
 
-class LeagueRoot : Decodable {
+class LeagueResult : Decodable {
     var success: Int?
     var result: [League]
 }
