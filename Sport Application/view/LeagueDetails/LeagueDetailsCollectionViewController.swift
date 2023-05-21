@@ -21,13 +21,14 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
         leagueDetailsViewModel = LeagueDetilsViewModel()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.layer.cornerRadius = 40
         networkIndecator = UIActivityIndicatorView(style: .large)
         networkIndecator.color = UIColor.black
         networkIndecator.center = view.center
         networkIndecator.startAnimating()
         view.addSubview(networkIndecator)
         
-        collectionView.register(UINib.init(nibName: "LeagueDetailsCollectionViewCell", bundle: nil) ,forCellWithReuseIdentifier: "leagueCell")
+//        collectionView.register(UINib.init(nibName: "LeagueDetailsCollectionViewCell", bundle: nil) ,forCellWithReuseIdentifier: "leagueCell")
         let layout = UICollectionViewCompositionalLayout{
             index , environment in
             switch index{
@@ -93,9 +94,9 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "leagueCell", for: indexPath) as! LeagueDetailsCollecViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "leagueCell", for: indexPath) as! LeagueDetailsCollectionViewCell
          let data = upComingArr![indexPath.row]
-       //  cell.VSLabel.text = "VS"
+         
          cell.homeTeamLogo.sd_setImage(with: URL(string: data.home_team_logo ?? ""))
          cell.awayTeamLogo.sd_setImage(with: URL(string: data.away_team_logo ?? ""))
          cell.homeTeamName.text = data.event_home_team
@@ -105,5 +106,13 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     
         return cell
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height )
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 3
+//    }
 
 }
