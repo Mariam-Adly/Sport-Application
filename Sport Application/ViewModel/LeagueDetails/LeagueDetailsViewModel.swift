@@ -30,7 +30,6 @@ class LeagueDetilsViewModel{
     func getUpccoming(sportName :  String,  leagueId: Int) {
         NetworkServices.getUpComingEvents(sportName: sportName, leagueId: leagueId) { [weak self] result in
             self?.upComingList = result?.result
-            
         }
     }
     func getLastesEvent(sportName: String, leagueId: Int){

@@ -35,10 +35,10 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
         upComingL.layer.cornerRadius = upComingL.frame.size.height/2.0
         upComingL.layer.masksToBounds = true
         
-        latestRwsultL.layer.cornerRadius = upComingL.frame.size.height/2.0
+        latestRwsultL.layer.cornerRadius = latestRwsultL.frame.size.height/2.0
         latestRwsultL.layer.masksToBounds = true
         
-        teamsL.layer.cornerRadius = upComingL.frame.size.height/2.0
+        teamsL.layer.cornerRadius = teamsL.frame.size.height/2.0
         teamsL.layer.masksToBounds = true
         
     
@@ -68,6 +68,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
         teamsC.register(UINib.init(nibName: "TeamsCollectionViewCell", bundle: nil) ,forCellWithReuseIdentifier: "teamCell")
         
         leagueDetailsViewModel.getUpccoming(sportName: sportName!, leagueId: leagueID!)
+    
         leagueDetailsViewModel.bindUpComingListToLeagueDetailsVC = {
             DispatchQueue.main.async {
                 self.upComingArr = self.leagueDetailsViewModel.upComingList
@@ -80,6 +81,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
             DispatchQueue.main.async {
                 self.latestArr = self.leagueDetailsViewModel.latestEventsList
                 self.latestC.reloadData()
+                
             }
         }
         
@@ -88,6 +90,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
             DispatchQueue.main.async {
                 self.teamsArr = self.leagueDetailsViewModel.teamsList
                 self.teamsC.reloadData()
+            
             }
         }
 
@@ -120,7 +123,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                  self.latestC.isHidden = false
              }
              return latestResult
-         }else{
+         }
              var teamsResult = teamsArr?.count ?? 0
              if teamsResult == 0{
                  self.teamsC.isHidden = true
@@ -128,9 +131,6 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                  self.teamsC.isHidden = false
              }
              return teamsResult
-         }
-       
-        return 0
     }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -149,7 +149,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
              let cell = upComingC.dequeueReusableCell(withReuseIdentifier: "leagueCell", for: indexPath) as! LeagueDetailCollectionViewCell
         
              let data = upComingArr![indexPath.row]
-             
+             cell.ScoreTeam.text = "VS"
              cell.homeTeamLogo.sd_setImage(with: URL(string: data.home_team_logo ?? ""),placeholderImage: placeHolderImg)
              cell.awayTeamLogo.sd_setImage(with: URL(string: data.away_team_logo ?? ""),placeholderImage: placeHolderImg)
              cell.homeTeamName.text = data.event_home_team
@@ -167,7 +167,9 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
              cell.homeTeamName.text = data.event_home_team
              cell.awatTeamName.text = data.event_away_team
              cell.date.text = data.event_date
-         cell.time.text = data.event_final_result
+             cell.time.text = data.event_time
+             cell.ScoreTeam.text = data.event_final_result
+            
              return cell
          }
          let cell = teamsC.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as! TeamsCollectionViewCell
@@ -193,6 +195,21 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
            return UIEdgeInsets(top: 15, left: 5, bottom: 15, right: 5)
 
        }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == teamsC {
+            if sportName == "basketball" || sportName == "cricket"{
+                let alert = UIAlertController(title: nil, message: "Sorry, this team has no more information", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+            }else{
+                let teamsDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsViewController") as! TeamDetailsViewController
+                teamsDetailsVC.team = teamsArr![indexPath.row]
+                self.navigationController?.pushViewController(teamsDetailsVC, animated: true)
+            }
+        }
+    }
 
 
 }
