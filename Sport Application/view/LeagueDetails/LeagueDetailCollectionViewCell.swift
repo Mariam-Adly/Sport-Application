@@ -9,6 +9,7 @@ import UIKit
 
 class LeagueDetailCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var ScoreTeam: UILabel!
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var awatTeamName: UILabel!
     @IBOutlet weak var awayTeamLogo: UIImageView!

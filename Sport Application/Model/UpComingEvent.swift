@@ -19,4 +19,6 @@ class UpCommingEvent : Decodable{
     var home_team_logo : String?
     var away_team_logo : String?
     
+  
+    
 }
