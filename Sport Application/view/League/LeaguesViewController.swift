@@ -85,10 +85,12 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let leaguedetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
-        leaguedetailsVC.sportName = sportName
-        leaguedetailsVC.leagueID = leagueArr![indexPath.row].league_key
-           self.navigationController?.pushViewController(leaguedetailsVC, animated: true)
+    
+            let leaguedetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
+            leaguedetailsVC.sportName = sportName
+            leaguedetailsVC.leagueID = leagueArr![indexPath.row].league_key
+               self.navigationController?.pushViewController(leaguedetailsVC, animated: true)
+    
     }
      
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

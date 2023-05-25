@@ -8,16 +8,17 @@
 import Foundation
 class TeamDetailsViewModel{
     
+    
     func saveToCoreData(team:Teams?){
-      //  TeamCoreData.coreData.insertTeam(team: team!)
+        TeamsFavCoreData.coreData.insertTeam(teamPass: team!)
     }
     
     func deleteFromCoreData(team: Teams?){
-       // TeamCoreData.coreData.deleteTeam(team: team!)
+        TeamsFavCoreData.coreData.deleteTeam(team: team!)
     }
     
-//    func isFavouriteTeam(team: Teams?) -> Bool {
-//    //    return TeamCoreData.coreData.isTeamFavourite(team: team!)
-//    }
+    func isFavouriteTeam(team: Teams?) -> Bool {
+        return TeamsFavCoreData.coreData.teamIsFav(team: team!)
+    }
     
 }

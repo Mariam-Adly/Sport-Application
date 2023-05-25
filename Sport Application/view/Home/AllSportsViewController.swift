@@ -8,7 +8,7 @@
 import UIKit
 
 class AllSportsViewController: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource{
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var sportArr = [Sport]()
     
@@ -21,10 +21,10 @@ class AllSportsViewController: UIViewController , UICollectionViewDelegate,UICol
         sportArr.append(Sport(sportName: "BasketBall", sportImg: UIImage(named: "basketball")!))
         sportArr.append(Sport(sportName: "Tennis", sportImg: UIImage(named: "tennis-2")!))
         sportArr.append(Sport(sportName: "Cricket", sportImg: UIImage(named: "cricket1")!))
-       
+        
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sportArr.count
     }
@@ -39,24 +39,29 @@ class AllSportsViewController: UIViewController , UICollectionViewDelegate,UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 170, height: 170)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 100, left: 15, bottom: 100, right: 10)
     }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var leaguesTableView = self.storyboard?.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
-        leaguesTableView.sportName = sportArr[indexPath.row].sportName.lowercased()
-        self.navigationController?.pushViewController(leaguesTableView, animated: true)
-    }
     
-   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if CheckNetwork.isConnectedToInternet(){
+            var leaguesTableView = self.storyboard?.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
+            leaguesTableView.sportName = sportArr[indexPath.row].sportName.lowercased()
+            self.navigationController?.pushViewController(leaguesTableView, animated: true)
+        }else{
+            let alert = UIAlertController(title: nil, message: "No internet connection please check your wi-fi or moblie data and try again", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
 }
