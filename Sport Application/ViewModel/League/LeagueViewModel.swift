@@ -8,7 +8,7 @@
 import Foundation
 class LeagueViewModel{
     var bindResultToLeagueTableViewController : (()->()) = {}
-    var leagueResult : [League]!{
+    var leagueResult : [League]?{
         didSet{
             bindResultToLeagueTableViewController()
         }
