@@ -25,6 +25,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     var sportName : String?
     var leagueID : Int?
     
+    
     var placeHolderImg : UIImage?
     var leagueDetailsViewModel : LeagueDetilsViewModel!
     var networkIndecator : UIActivityIndicatorView!
@@ -76,7 +77,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                 self.networkIndecator.stopAnimating()
             }
         }
-        leagueDetailsViewModel.getLastesEvent(sportName: sportName!, leagueId: leagueID!)
+        leagueDetailsViewModel.getLastesEvent(sportName: sportName ?? "", leagueId: leagueID ?? 0)
         leagueDetailsViewModel.bindLatestEventListToLeagueDetailsVC = {
             DispatchQueue.main.async {
                 self.latestArr = self.leagueDetailsViewModel.latestEventsList

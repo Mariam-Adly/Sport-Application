@@ -28,10 +28,10 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFK-xl-HyZ">
-                                <rect key="frame" x="154" y="56" width="113" height="28"/>
+                                <rect key="frame" x="154" y="56" width="143" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="3Ky-jk-zGp"/>
-                                    <constraint firstAttribute="height" constant="28" id="mZp-jD-gIb"/>
+                                    <constraint firstAttribute="height" constant="28" id="f6U-zX-wUw"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="143" id="khw-mL-D2K"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -46,7 +46,6 @@
                             <constraint firstItem="g6g-LD-zCp" firstAttribute="leading" secondItem="Qnq-YK-GjP" secondAttribute="leading" constant="16" id="bk3-f5-OgQ"/>
                             <constraint firstItem="LFK-xl-HyZ" firstAttribute="centerY" secondItem="g6g-LD-zCp" secondAttribute="centerY" id="gvp-Y2-w98"/>
                             <constraint firstItem="g6g-LD-zCp" firstAttribute="top" secondItem="Qnq-YK-GjP" secondAttribute="top" constant="20" id="h0u-HF-YAK"/>
-                            <constraint firstAttribute="bottom" secondItem="LFK-xl-HyZ" secondAttribute="bottom" constant="56" id="ijo-fa-HBd"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -61,8 +60,6 @@
             <connections>
                 <outlet property="favoriteTeamLogo" destination="g6g-LD-zCp" id="QwN-UK-iep"/>
                 <outlet property="favoriteTeamName" destination="LFK-xl-HyZ" id="goZ-81-hs6"/>
-                <outlet property="playerImg" destination="g6g-LD-zCp" id="ANw-sN-6Ee"/>
-                <outlet property="playerName" destination="LFK-xl-HyZ" id="ZjA-kV-oi4"/>
             </connections>
             <point key="canvasLocation" x="134.35114503816794" y="22.535211267605636"/>
         </tableViewCell>

@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="-18"/>
+            <point key="canvasLocation" x="1863" y="-18"/>
         </scene>
         <!--All Sports View Controller-->
         <scene sceneID="Scq-gu-V3j">
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKG-RZ-dkm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4680.1526717557254" y="-18.30985915492958"/>
+            <point key="canvasLocation" x="5606.8702290076335" y="-18.30985915492958"/>
         </scene>
         <!--Leagues View Controller-->
         <scene sceneID="06W-CQ-dQK">
@@ -174,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6S-XD-CE1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5422.1374045801522" y="-18.30985915492958"/>
+            <point key="canvasLocation" x="6348.8549618320612" y="-18.30985915492958"/>
         </scene>
         <!--League Details View Controller-->
         <scene sceneID="1Gg-Qw-j2S">
@@ -326,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ev7-VI-53h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6121.3740458015263" y="-18.30985915492958"/>
+            <point key="canvasLocation" x="7048.0916030534345" y="-18.30985915492958"/>
         </scene>
         <!--Team Details View Controller-->
         <scene sceneID="cRz-DQ-73m">
@@ -345,7 +345,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Zbl-Y3-SaB"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="fXc-fq-xTg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -420,44 +420,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gZ-uQ-Vs8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6809.9236641221369" y="-18.30985915492958"/>
+            <point key="canvasLocation" x="7736.6412213740459" y="-18.30985915492958"/>
         </scene>
-        <!--Favorites-->
+        <!--Favorite View Controller-->
         <scene sceneID="XbW-8v-eeC">
             <objects>
                 <viewController id="kEp-tw-NIt" customClass="FavoriteViewController" customModule="Sport_Application" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dYD-T8-pxG">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="dYD-T8-pxG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noFav" translatesAutoresizingMaskIntoConstraints="NO" id="7AL-gZ-hRG">
+                                <rect key="frame" x="16" y="162" width="361" height="523"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="523" id="a5q-Sr-zqt"/>
+                                    <constraint firstAttribute="width" constant="361" id="uMH-Q5-taC"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="McW-2h-1T5">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="121" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="666" id="Coa-o6-SQ9"/>
+                                    <constraint firstAttribute="width" constant="393" id="SPC-sh-AVm"/>
+                                </constraints>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Teams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngg-hb-iP5">
+                                <rect key="frame" x="16" y="65" width="361" height="48"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="361" id="JKj-NX-LmP"/>
+                                    <constraint firstAttribute="height" constant="48" id="RVO-6N-5QI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dFz-sY-WPS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dFz-sY-WPS" firstAttribute="trailing" secondItem="McW-2h-1T5" secondAttribute="trailing" id="6pw-wY-RfZ"/>
-                            <constraint firstItem="dFz-sY-WPS" firstAttribute="bottom" secondItem="McW-2h-1T5" secondAttribute="bottom" id="ewq-0Q-xWS"/>
-                            <constraint firstItem="McW-2h-1T5" firstAttribute="leading" secondItem="dFz-sY-WPS" secondAttribute="leading" id="twW-K4-das"/>
-                            <constraint firstItem="McW-2h-1T5" firstAttribute="top" secondItem="dFz-sY-WPS" secondAttribute="top" id="xAN-Q2-hhu"/>
+                            <constraint firstItem="7AL-gZ-hRG" firstAttribute="trailing" secondItem="dYD-T8-pxG" secondAttribute="trailingMargin" id="1dE-rf-apn"/>
+                            <constraint firstItem="McW-2h-1T5" firstAttribute="top" secondItem="ngg-hb-iP5" secondAttribute="bottom" constant="8" id="3E5-fa-axS"/>
+                            <constraint firstItem="McW-2h-1T5" firstAttribute="trailing" secondItem="dFz-sY-WPS" secondAttribute="trailing" id="CyM-Je-p8t"/>
+                            <constraint firstAttribute="bottom" secondItem="McW-2h-1T5" secondAttribute="bottom" id="GJl-qU-RLW"/>
+                            <constraint firstItem="McW-2h-1T5" firstAttribute="leading" secondItem="dFz-sY-WPS" secondAttribute="leading" id="N0N-Li-QsQ"/>
+                            <constraint firstItem="7AL-gZ-hRG" firstAttribute="leading" secondItem="dYD-T8-pxG" secondAttribute="leadingMargin" id="Nkb-eD-Pii"/>
+                            <constraint firstItem="7AL-gZ-hRG" firstAttribute="top" secondItem="ngg-hb-iP5" secondAttribute="bottom" constant="49" id="QbK-w2-l4R"/>
+                            <constraint firstItem="ngg-hb-iP5" firstAttribute="top" secondItem="dYD-T8-pxG" secondAttribute="top" constant="65" id="RaX-ty-3uJ"/>
+                            <constraint firstItem="dFz-sY-WPS" firstAttribute="trailing" secondItem="ngg-hb-iP5" secondAttribute="trailing" constant="16" id="ec7-06-C10"/>
+                            <constraint firstItem="McW-2h-1T5" firstAttribute="top" secondItem="ngg-hb-iP5" secondAttribute="bottom" constant="8" id="niH-If-W5u"/>
+                            <constraint firstItem="ngg-hb-iP5" firstAttribute="leading" secondItem="dFz-sY-WPS" secondAttribute="leading" constant="16" id="ow3-QC-Zk8"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="7AL-gZ-hRG" secondAttribute="bottom" constant="84" id="t2f-nI-DvG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="Qef-FZ-f9M"/>
+                    <navigationItem key="navigationItem" id="qLv-6C-H7h"/>
                     <connections>
-                        <outlet property="favoriteTableView" destination="McW-2h-1T5" id="TXP-IT-ynU"/>
+                        <outlet property="favTeamsLabel" destination="ngg-hb-iP5" id="a8F-ih-nub"/>
+                        <outlet property="favoriteTableView" destination="McW-2h-1T5" id="1La-n8-2os"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UI3-rK-UyF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681.679389312977" y="745.77464788732402"/>
+            <point key="canvasLocation" x="4727.480916030534" y="766.90140845070425"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QMl-KG-2KU">
             <objects>
                 <tabBarController storyboardIdentifier="homeView" automaticallyAdjustsScrollViewInsets="NO" id="qCn-HR-Cue" customClass="ViewController" customModule="Sport_Application" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="XCy-Rj-fcq"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="37U-cl-jlx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -466,13 +498,13 @@
                         <color key="selectedImageTintColor" systemColor="systemOrangeColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="KUb-ow-rqh" kind="relationship" relationship="viewControllers" id="UUC-sl-JhV"/>
-                        <segue destination="kEp-tw-NIt" kind="relationship" relationship="viewControllers" id="AZ2-mt-3Cl"/>
+                        <segue destination="LGE-o4-OHH" kind="relationship" relationship="viewControllers" id="oFM-33-M3E"/>
+                        <segue destination="hqr-YC-ke9" kind="relationship" relationship="viewControllers" id="AZ2-mt-3Cl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ev-HG-75C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2747" y="-18"/>
+            <point key="canvasLocation" x="3802" y="-18"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="fIY-8C-WZW">
@@ -588,26 +620,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbw-eC-Ign" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1947.3282442748091" y="-18.30985915492958"/>
+            <point key="canvasLocation" x="2785" y="-18"/>
         </scene>
         <!--Sports-->
-        <scene sceneID="pOZ-1U-dB7">
+        <scene sceneID="FbH-Hr-iAu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KUb-ow-rqh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sports" image="sportscourt.fill" catalog="system" id="QRJ-fa-1Fw"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LGE-o4-OHH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sports" image="sportscourt.fill" catalog="system" id="yqe-Fi-wbz">
+                        <color key="badgeColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ixc-N7-exU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1La-Yd-lwH">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="I2b-E2-phb" kind="relationship" relationship="rootViewController" id="Hpy-6q-NyI"/>
+                        <segue destination="I2b-E2-phb" kind="relationship" relationship="rootViewController" id="9Ri-ar-z6J"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rlG-49-X4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rti-X7-Sj5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3753.4351145038167" y="-18.30985915492958"/>
+            <point key="canvasLocation" x="4686" y="-18"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="RV2-02-Xzz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hqr-YC-ke9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="Qef-FZ-f9M"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UXv-NA-tus">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kEp-tw-NIt" kind="relationship" relationship="rootViewController" id="UXm-Nk-O1h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kv9-Yj-EDx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3800.7633587786258" y="766.90140845070425"/>
         </scene>
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -615,6 +668,7 @@
         <image name="No data 1" width="225" height="225"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="noFav" width="393" height="694"/>
         <image name="sportscourt.fill" catalog="system" width="128" height="83"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
