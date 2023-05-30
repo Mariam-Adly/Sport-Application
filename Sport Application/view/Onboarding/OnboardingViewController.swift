@@ -32,7 +32,7 @@ class OnboardingViewController: UIViewController{
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
         
-        slides = [OnboardingSlide(title: "Football", description: "Football , also called association football or soccer,Is game involving two teams of 11 player who try to maneuver the ball into the other team’s goals without using their hands or arms", image: UIImage(named: "on1")!),OnboardingSlide(title:"Cricket", description: "Cricket ,played with a bat and ball and involves two competing sides (teams) of 11 players.", image:UIImage(named:"on2")! ),OnboardingSlide(title: "Basketball", description: "Basketball ,a game in which two teams of five players each try to score goals by throwing a large ball through a circular net fixed to a metal ring at each end of the court.", image:UIImage(named:"on3")! )]
+        slides = [OnboardingSlide(title: "Football", description: "Football is a game played by two teams, each with 11 players. The objective is to score more goals than the other team by kicking the ball into the opposing team's goal.", image: UIImage(named: "on1")!),OnboardingSlide(title:"Cricket", description: "Cricket is a game played by two teams, each with eleven players. The objective is to score more runs than the other team by hitting the ball with a bat and running back and forth between two sets of wickets.", image:UIImage(named:"on2")! ),OnboardingSlide(title: "Basketball", description: "Basketball is a game played by two teams, each with five players. The objective is to score more points than the other team by shooting a ball through a hoop that is 10 feet high.", image:UIImage(named:"on3")! )]
     }
     
 

@@ -183,13 +183,13 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     
         if collectionView == upComingC{
-            return CGSize(width: collectionView.frame.width, height: 170)
+            return CGSize(width: collectionView.frame.width - 10, height: 170)
         }
         else if (collectionView == teamsC)
         {
             return CGSize(width:184, height: 150)
         }
-        return CGSize(width: Int(latestC.frame.width), height: 160)
+        return CGSize(width: Int(latestC.frame.width - 10 ), height: 160)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

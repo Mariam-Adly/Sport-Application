@@ -9,6 +9,7 @@ import UIKit
 
 class AllSportsViewController: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource{
     
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var sportArr = [Sport]()
     
@@ -31,13 +32,17 @@ class AllSportsViewController: UIViewController , UICollectionViewDelegate,UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sportsCell", for: indexPath) as! AllSportsCollectionViewCell
+        cell.layer.cornerRadius = 40
+        cell.layer.masksToBounds = true
+        cell.layer.borderWidth = 2
+        cell.layer.borderColor = UIColor.orange.cgColor
         let sport = sportArr[indexPath.row]
         cell.setCell(name: sport.sportName, photo: sport.sportImg)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 170, height: 170)
+        return CGSize(width: 150, height: 170)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -49,7 +54,7 @@ class AllSportsViewController: UIViewController , UICollectionViewDelegate,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 100, left: 15, bottom: 100, right: 10)
+        return UIEdgeInsets(top: 100, left: 10, bottom: 100, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -58,10 +63,21 @@ class AllSportsViewController: UIViewController , UICollectionViewDelegate,UICol
             leaguesTableView.sportName = sportArr[indexPath.row].sportName.lowercased()
             self.navigationController?.pushViewController(leaguesTableView, animated: true)
         }else{
-            let alert = UIAlertController(title: nil, message: "No internet connection please check your wi-fi or moblie data and try again", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
+            makeNoInterntAlert()
         }
     }
+    @IBAction func switchMode(_ sender: UISwitch) {
+        if #available(iOS 13.0, *){
+            let appDelegate = UIApplication.shared.windows.first
+            if sender.isOn{
+                appDelegate?.overrideUserInterfaceStyle = .dark
+                return
+            }
+            appDelegate?.overrideUserInterfaceStyle = .light
+            return
+        }else{
+            
+        }
+    }
+    
 }
