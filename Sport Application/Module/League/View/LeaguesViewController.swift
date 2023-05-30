@@ -15,7 +15,7 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
     var leagueArr : [League]?
     var filterData : [League]?
     var networkIndecator : UIActivityIndicatorView!
-    var leagueViewModel : LeagueViewModel!
+    var leagueViewModel : LeagueViewModel?
     var placeHolderImg : UIImage?
     var isSearching = false
     @IBOutlet weak var searchBar: UISearchBar!
@@ -32,10 +32,10 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
         networkIndecator.center = view.center
         networkIndecator.startAnimating()
         view.addSubview(networkIndecator)
-        leagueViewModel.getLeagues(sportName: sportName!)
-        leagueViewModel.bindResultToLeagueTableViewController = {
+        leagueViewModel?.getLeagues(sportName: sportName!)
+        leagueViewModel?.bindResultToLeagueTableViewController = {
             DispatchQueue.main.async {
-                self.leagueArr = self.leagueViewModel.leagueResult
+                self.leagueArr = self.leagueViewModel?.leagueResult
                 self.tableView.reloadData()
                 self.networkIndecator.stopAnimating()
             }
@@ -86,10 +86,12 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-            let leaguedetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
-            leaguedetailsVC.sportName = sportName
-            leaguedetailsVC.leagueID = leagueArr![indexPath.row].league_key
-               self.navigationController?.pushViewController(leaguedetailsVC, animated: true)
+        let leaguedetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
+    let controller = LeagueDetilsViewModel(sportName : sportName , leagueId : leagueArr![indexPath.row].league_key)
+    leaguedetailsVC.leagueDetailsViewModel = controller
+      
+           self.navigationController?.pushViewController(leaguedetailsVC, animated: true)
+
     
     }
      

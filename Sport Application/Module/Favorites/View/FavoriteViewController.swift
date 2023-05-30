@@ -90,9 +90,11 @@ class FavoriteViewController: UIViewController ,UITableViewDataSource,UITableVie
             var data = favTeamsArr![indexPath.row]
             favViewModel?.goToTeamDetails(teamID: data.team_key!)
             let teamDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsViewController") as! TeamDetailsViewController
+            let controller = TeamDetailsViewModel(team:favTeamsArr![indexPath.row])
+            teamDetailsVC.detailsViewModel = controller
             favViewModel?.bindFavTeamToDetailsTeamViewController = {
                 () in
-                teamDetailsVC.team = self.favViewModel?.teamDetails
+                teamDetailsVC.detailsViewModel?.team = self.favViewModel?.teamDetails ?? Teams()
                 DispatchQueue.main.async {
                     self.navigationController?.pushViewController(teamDetailsVC, animated: true)
                 }

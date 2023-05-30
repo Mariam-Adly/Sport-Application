@@ -8,6 +8,10 @@
 import Foundation
 class TeamDetailsViewModel{
     
+    var team : Teams
+    init(team: Teams) {
+        self.team = team
+    }
     
     func saveToCoreData(team:Teams?){
         TeamsFavCoreData.coreData.insertTeam(teamPass: team!)

@@ -76,7 +76,7 @@ class AllSportsViewController: UIViewController , UICollectionViewDelegate,UICol
             appDelegate?.overrideUserInterfaceStyle = .light
             return
         }else{
-            
+          print("IOS is less than 13.0")
         }
     }
     
