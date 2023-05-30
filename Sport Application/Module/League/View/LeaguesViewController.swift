@@ -15,7 +15,7 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
     var leagueArr : [League]?
     var filterData : [League]?
     var networkIndecator : UIActivityIndicatorView!
-    var leagueViewModel : LeagueViewModel!
+    var leagueViewModel : LeagueViewModel?
     var placeHolderImg : UIImage?
     var isSearching = false
     @IBOutlet weak var searchBar: UISearchBar!
@@ -24,18 +24,23 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        leagueViewModel = LeagueViewModel()
+        
+       leagueViewModel = LeagueViewModel()
+        
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
+        
         networkIndecator = UIActivityIndicatorView(style: .large)
         networkIndecator.color = UIColor.black
         networkIndecator.center = view.center
         networkIndecator.startAnimating()
+        
         view.addSubview(networkIndecator)
-        leagueViewModel.getLeagues(sportName: sportName!)
-        leagueViewModel.bindResultToLeagueTableViewController = {
+        
+        leagueViewModel?.getLeagues(sportName: sportName!)
+        leagueViewModel?.bindResultToLeagueTableViewController = {
             DispatchQueue.main.async {
-                self.leagueArr = self.leagueViewModel.leagueResult
+                self.leagueArr = self.leagueViewModel?.leagueResult
                 self.tableView.reloadData()
                 self.networkIndecator.stopAnimating()
             }
@@ -87,8 +92,9 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
             let leaguedetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
-            leaguedetailsVC.sportName = sportName
-            leaguedetailsVC.leagueID = leagueArr![indexPath.row].league_key
+        let controller = LeagueDetilsViewModel(sportName : sportName , leagueId : leagueArr![indexPath.row].league_key)
+        leaguedetailsVC.leagueDetailsViewModel = controller
+          
                self.navigationController?.pushViewController(leaguedetailsVC, animated: true)
     
     }

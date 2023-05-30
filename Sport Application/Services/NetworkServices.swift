@@ -32,8 +32,7 @@ class NetworkServices : NetworkServiceProtocol{
     
     static func getUpComingEvents(sportName: String ,leagueId: Int , completionHandler: @escaping (UpComingResult?) -> Void ){
         let url = URL(string: "https://apiv2.allsportsapi.com/\(sportName)/?met=Fixtures&APIkey=1c11a63ea8a635a52690a1c9ce812c51bb0bf751ea92b4b5539418c3018601e8&from=2020-05-23&to=2025-06-30&leagueId=\(leagueId)")
-        print("jessy\(sportName)")
-        print("jessy\(leagueId)")
+      
         guard let newUrl = url else {
             return
         }

@@ -21,17 +21,14 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     var upComingArr : [UpCommingEvent]?
     var latestArr : [LatestEvent]?
     var teamsArr : [Teams]?
-    
-    var sportName : String?
-    var leagueID : Int?
-    
+
     
     var placeHolderImg : UIImage?
-    var leagueDetailsViewModel : LeagueDetilsViewModel!
+    var leagueDetailsViewModel : LeagueDetilsViewModel?
     var networkIndecator : UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        leagueDetailsViewModel = LeagueDetilsViewModel()
+   
         
         upComingL.layer.cornerRadius = upComingL.frame.size.height/2.0
         upComingL.layer.masksToBounds = true
@@ -68,28 +65,28 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
         
         teamsC.register(UINib.init(nibName: "TeamsCollectionViewCell", bundle: nil) ,forCellWithReuseIdentifier: "teamCell")
         
-        leagueDetailsViewModel.getUpccoming(sportName: sportName!, leagueId: leagueID!)
+        leagueDetailsViewModel?.getUpccoming(sportName: leagueDetailsViewModel?.sportName ?? "", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
     
-        leagueDetailsViewModel.bindUpComingListToLeagueDetailsVC = {
+        leagueDetailsViewModel?.bindUpComingListToLeagueDetailsVC = {
             DispatchQueue.main.async {
-                self.upComingArr = self.leagueDetailsViewModel.upComingList
+                self.upComingArr = self.leagueDetailsViewModel?.upComingList
                 self.upComingC.reloadData()
                 self.networkIndecator.stopAnimating()
             }
         }
-        leagueDetailsViewModel.getLastesEvent(sportName: sportName ?? "", leagueId: leagueID ?? 0)
-        leagueDetailsViewModel.bindLatestEventListToLeagueDetailsVC = {
+        leagueDetailsViewModel?.getLastesEvent(sportName: leagueDetailsViewModel?.sportName ?? "", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
+        leagueDetailsViewModel?.bindLatestEventListToLeagueDetailsVC = {
             DispatchQueue.main.async {
-                self.latestArr = self.leagueDetailsViewModel.latestEventsList
+                self.latestArr = self.leagueDetailsViewModel?.latestEventsList
                 self.latestC.reloadData()
                 
             }
         }
         
-        leagueDetailsViewModel.getTeams(sportName: sportName!, leagueId: leagueID!)
-        leagueDetailsViewModel.bindTeamsListToLeagueDetailsVC = {
+        leagueDetailsViewModel?.getTeams(sportName: leagueDetailsViewModel?.sportName ?? "", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
+        leagueDetailsViewModel?.bindTeamsListToLeagueDetailsVC = {
             DispatchQueue.main.async {
-                self.teamsArr = self.leagueDetailsViewModel.teamsList
+                self.teamsArr = self.leagueDetailsViewModel?.teamsList
                 self.teamsC.reloadData()
             
             }
@@ -135,7 +132,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         switch sportName {
+         switch leagueDetailsViewModel?.sportName{
          case SportName.FootBall.rawValue:
              placeHolderImg = UIImage(named: "football")
          case SportName.BasketBall.rawValue :
@@ -199,14 +196,16 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == teamsC {
-            if sportName == "basketball" || sportName == "cricket"{
+            if leagueDetailsViewModel?.sportName == "basketball" || leagueDetailsViewModel?.sportName == "cricket"{
                 let alert = UIAlertController(title: nil, message: "Sorry, this team has no more information", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(okAction)
                 present(alert, animated: true, completion: nil)
             }else{
                 let teamsDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsViewController") as! TeamDetailsViewController
-                teamsDetailsVC.team = teamsArr![indexPath.row]
+                let controller = TeamDetailsViewModel(team:teamsArr![indexPath.row])
+                teamsDetailsVC.detailsViewModel = controller
+               
                 self.navigationController?.pushViewController(teamsDetailsVC, animated: true)
             }
         }
