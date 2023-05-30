@@ -7,6 +7,16 @@
 
 import Foundation
 class LeagueDetilsViewModel{
+    
+    var sportName : String?
+    var leagueId : Int?
+    var leagueDetailsViewModel : LeagueDetilsViewModel?
+    init(sportName: String? = nil, leagueId: Int? = nil, leagueDetailsViewModel: LeagueDetilsViewModel? = nil) {
+        self.sportName = sportName
+        self.leagueId = leagueId
+        self.leagueDetailsViewModel = leagueDetailsViewModel
+    }
+
    
     var bindUpComingListToLeagueDetailsVC :  (()->()) = {}
     var bindLatestEventListToLeagueDetailsVC :  (()->()) = {}
