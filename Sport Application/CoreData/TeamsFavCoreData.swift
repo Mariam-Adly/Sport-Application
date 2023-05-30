@@ -17,7 +17,7 @@ class TeamsFavCoreData{
     let entity: NSEntityDescription?
     
      private init(){
-        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
         context = appDelegate?.persistentContainer.viewContext
         entity = NSEntityDescription.entity(forEntityName: "Team", in: context!)
     }
@@ -59,7 +59,7 @@ class TeamsFavCoreData{
     
     func deleteTeam(team:Teams){
         let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "Team")
-        let predicate = NSPredicate(format: "teamKey==%i", team.team_key!)
+        let predicate = NSPredicate(format: "teamKey==%i", team.team_key ?? 0)
         fetchReq.predicate = predicate
         do{
             let team = try self.context?.fetch(fetchReq)

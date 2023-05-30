@@ -57,6 +57,7 @@
 		4499744A2A168E640074122E /* Sport_ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449974492A168E640074122E /* Sport_ApplicationUITests.swift */; };
 		4499744C2A168E640074122E /* Sport_ApplicationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499744B2A168E640074122E /* Sport_ApplicationUITestsLaunchTests.swift */; };
 		449974592A16BF0A0074122E /* sport.json in Resources */ = {isa = PBXBuildFile; fileRef = 449974582A16BF0A0074122E /* sport.json */; };
+		44A647452A2658F100AE6C0D /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A647442A2658F100AE6C0D /* Alert.swift */; };
 		44C585F62A16C7FA008D3AB0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C585F52A16C7FA008D3AB0 /* SplashViewController.swift */; };
 		44D679412A16CC5D00C3FBA6 /* AllSportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D679402A16CC5D00C3FBA6 /* AllSportsViewController.swift */; };
 		44D679432A16D56D00C3FBA6 /* AllSportsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D679422A16D56D00C3FBA6 /* AllSportsCollectionViewCell.swift */; };
@@ -140,6 +141,7 @@
 		449974492A168E640074122E /* Sport_ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport_ApplicationUITests.swift; sourceTree = "<group>"; };
 		4499744B2A168E640074122E /* Sport_ApplicationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport_ApplicationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		449974582A16BF0A0074122E /* sport.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sport.json; sourceTree = "<group>"; };
+		44A647442A2658F100AE6C0D /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		44C585F52A16C7FA008D3AB0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		44D679402A16CC5D00C3FBA6 /* AllSportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsViewController.swift; sourceTree = "<group>"; };
 		44D679422A16D56D00C3FBA6 /* AllSportsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			children = (
 				447CE03E2A1A678F008C254D /* SportName.swift */,
 				447F81D32A1FF2440002E049 /* CheckNetwork.swift */,
+				44A647442A2658F100AE6C0D /* Alert.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				44D679412A16CC5D00C3FBA6 /* AllSportsViewController.swift in Sources */,
 				447CB4322A1D37B4001AB495 /* LatestResult.swift in Sources */,
 				4484EF252A18F6DC0047A61B /* NetworkServices.swift in Sources */,
+				44A647452A2658F100AE6C0D /* Alert.swift in Sources */,
 				446B182F2A1E7A5F00691833 /* FavoriteViewController.swift in Sources */,
 				447CB4362A1D6690001AB495 /* Teams.swift in Sources */,
 				447CB43C2A1D6958001AB495 /* TeamProtocol.swift in Sources */,

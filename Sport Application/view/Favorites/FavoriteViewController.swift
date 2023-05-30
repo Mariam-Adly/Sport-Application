@@ -59,7 +59,7 @@ class FavoriteViewController: UIViewController ,UITableViewDataSource,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favoriteTableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as! FavoriteTableViewCell
         let data = favTeamsArr![indexPath.row]
-        cell.favoriteTeamLogo.sd_setImage(with: URL(string: data.team_logo!))
+        cell.favoriteTeamLogo.sd_setImage(with: URL(string: data.team_logo ?? ""))
         cell.favoriteTeamName.text = data.team_name
         return cell
     }
@@ -98,11 +98,7 @@ class FavoriteViewController: UIViewController ,UITableViewDataSource,UITableVie
                 }
             }
         }else{
-            let alert = UIAlertController(title: nil, message: "No internet connection please check your wi-fi or moblie data and try again", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
-        
+           makeNoInterntAlert()
         }
     }
 }

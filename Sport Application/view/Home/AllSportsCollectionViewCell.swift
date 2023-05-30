@@ -10,6 +10,7 @@ import UIKit
 class AllSportsCollectionViewCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var sportImg: UIImageView!
     @IBOutlet weak var sportTitle: UILabel!
     
@@ -17,5 +18,7 @@ class AllSportsCollectionViewCell: UICollectionViewCell {
         
         sportImg.image = photo
         sportTitle.text = name
+        
     }
+    
 }

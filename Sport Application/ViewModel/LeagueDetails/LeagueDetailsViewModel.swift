@@ -7,6 +7,7 @@
 
 import Foundation
 class LeagueDetilsViewModel{
+   
     var bindUpComingListToLeagueDetailsVC :  (()->()) = {}
     var bindLatestEventListToLeagueDetailsVC :  (()->()) = {}
     var bindTeamsListToLeagueDetailsVC :  (()->()) = {}
