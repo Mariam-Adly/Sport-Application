@@ -149,27 +149,40 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
         
              let data = upComingArr![indexPath.row]
              cell.ScoreTeam.text = "VS"
-             cell.homeTeamLogo.sd_setImage(with: URL(string: data.home_team_logo ?? ""),placeholderImage: placeHolderImg)
-             cell.awayTeamLogo.sd_setImage(with: URL(string: data.away_team_logo ?? ""),placeholderImage: placeHolderImg)
-             cell.homeTeamName.text = data.event_home_team
-             cell.awatTeamName.text = data.event_away_team
              cell.date.text = data.event_date
              cell.time.text = data.event_time
-             return cell
-         }else if collectionView == latestC{
+             if leagueDetailsViewModel?.sportName == "tennis" {
+                 cell.homeTeamLogo.sd_setImage(with: URL(string: data.event_first_player_logo ?? ""),placeholderImage: placeHolderImg)
+                 cell.awayTeamLogo.sd_setImage(with: URL(string: data.event_second_player_logo ?? ""),placeholderImage: placeHolderImg)
+                 cell.homeTeamName.text = data.event_first_player
+                 cell.awatTeamName.text = data.event_second_player
+             }else{
+                 cell.homeTeamLogo.sd_setImage(with: URL(string: data.home_team_logo ?? ""),placeholderImage: placeHolderImg)
+                 cell.awayTeamLogo.sd_setImage(with: URL(string: data.away_team_logo ?? ""),placeholderImage: placeHolderImg)
+                 cell.homeTeamName.text = data.event_home_team
+                 cell.awatTeamName.text = data.event_away_team
+             }
+             return cell         }else if collectionView == latestC{
              let cell = latestC.dequeueReusableCell(withReuseIdentifier: "leagueCell", for: indexPath) as! LeagueDetailCollectionViewCell
         
              let data = latestArr![indexPath.row]
              
-             cell.homeTeamLogo.sd_setImage(with: URL(string: data.home_team_logo ?? ""),placeholderImage: placeHolderImg)
-             cell.awayTeamLogo.sd_setImage(with: URL(string: data.away_team_logo ?? ""),placeholderImage: placeHolderImg)
-             cell.homeTeamName.text = data.event_home_team
-             cell.awatTeamName.text = data.event_away_team
-             cell.date.text = data.event_date
-             cell.time.text = data.event_time
-             cell.ScoreTeam.text = data.event_final_result
-            
-             return cell
+                 if leagueDetailsViewModel?.sportName == "tennis" {
+                     cell.homeTeamLogo.sd_setImage(with: URL(string: data.event_first_player_logo ?? ""),placeholderImage: placeHolderImg)
+                     cell.awayTeamLogo.sd_setImage(with: URL(string: data.event_first_player_logo ?? ""),placeholderImage: placeHolderImg)
+                     cell.homeTeamName.text = data.event_first_player
+                     cell.awatTeamName.text = data.event_second_player
+                 }else{
+                     cell.homeTeamLogo.sd_setImage(with: URL(string: data.home_team_logo ?? ""),placeholderImage: placeHolderImg)
+                     cell.awayTeamLogo.sd_setImage(with: URL(string: data.away_team_logo ?? ""),placeholderImage: placeHolderImg)
+                     cell.homeTeamName.text = data.event_home_team
+                     cell.awatTeamName.text = data.event_away_team
+                 }
+                 cell.date.text = data.event_date
+                 cell.time.text = data.event_time
+                 cell.ScoreTeam.text = data.event_final_result
+                
+                 return cell
          }
          let cell = teamsC.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as! TeamsCollectionViewCell
          let data = teamsArr![indexPath.row]
