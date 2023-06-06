@@ -76,7 +76,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                 self.networkIndecator.stopAnimating()
             }
         }
-        leagueDetailsViewModel?.getLastesEvent(sportName: leagueDetailsViewModel?.sportName ?? "", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
+        leagueDetailsViewModel?.getLastesEvent(sportName: "tennis", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
         leagueDetailsViewModel?.bindLatestEventListToLeagueDetailsVC = {
             DispatchQueue.main.async {
                 self.latestArr = self.leagueDetailsViewModel?.latestEventsList
@@ -95,7 +95,6 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                 
             }
         }
-          
       
             leagueDetailsViewModel?.getTeams(sportName: leagueDetailsViewModel?.sportName ?? "", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
             leagueDetailsViewModel?.bindTeamsListToLeagueDetailsVC = {
@@ -135,6 +134,15 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
              }
              return latestResult
          }
+         if leagueDetailsViewModel?.sportName == "tennis" {
+             var teamsResult = players?.count ?? 0
+             if teamsResult == 0{
+                 self.teamsC.isHidden = true
+             }else{
+                 self.teamsC.isHidden = false
+             }
+             return teamsResult
+         }else{
              var teamsResult = teamsArr?.count ?? 0
              if teamsResult == 0{
                  self.teamsC.isHidden = true
@@ -142,6 +150,8 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                  self.teamsC.isHidden = false
              }
              return teamsResult
+         }
+         return 0
     }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -233,7 +243,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == teamsC {
-            if leagueDetailsViewModel?.sportName == "basketball" || leagueDetailsViewModel?.sportName == "cricket"{
+            if leagueDetailsViewModel?.sportName == "basketball" || leagueDetailsViewModel?.sportName == "cricket" || leagueDetailsViewModel?.sportName == "tennis" {
                 let alert = UIAlertController(title: nil, message: "Sorry, this team has no more information", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(okAction)
