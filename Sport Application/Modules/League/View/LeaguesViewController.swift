@@ -87,6 +87,7 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
         let leaguedetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
+        searchBar.text = ""
     let controller = LeagueDetilsViewModel(sportName : sportName , leagueId : leagueArr![indexPath.row].league_key)
     leaguedetailsVC.leagueDetailsViewModel = controller
       

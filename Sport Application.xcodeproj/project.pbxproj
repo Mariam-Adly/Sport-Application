@@ -64,6 +64,7 @@
 		44D679452A16D6DB00C3FBA6 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D679442A16D6DB00C3FBA6 /* Sport.swift */; };
 		44D679472A16DF6200C3FBA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D679462A16DF6200C3FBA6 /* ViewController.swift */; };
 		44D679492A16E91500C3FBA6 /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D679482A16E91500C3FBA6 /* LeaguesViewController.swift */; };
+		44EAA98B2A2FC1FB002B444A /* TennisPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAA98A2A2FC1FB002B444A /* TennisPlayers.swift */; };
 		782F1453F79DD01AA1B96886 /* Pods_Sport_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963BCE0887234B4AEBC35DFD /* Pods_Sport_Application.framework */; };
 		AC7B408F6F7EC336A82AE310 /* Pods_Sport_ApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1233B58D6CA73DC1FDF2F2 /* Pods_Sport_ApplicationTests.framework */; };
 /* End PBXBuildFile section */
@@ -148,6 +149,7 @@
 		44D679442A16D6DB00C3FBA6 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		44D679462A16DF6200C3FBA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44D679482A16E91500C3FBA6 /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
+		44EAA98A2A2FC1FB002B444A /* TennisPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayers.swift; sourceTree = "<group>"; };
 		54896634A77B44039118D0A3 /* Pods-Sport Application-Sport ApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sport Application-Sport ApplicationUITests.debug.xcconfig"; path = "Target Support Files/Pods-Sport Application-Sport ApplicationUITests/Pods-Sport Application-Sport ApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		770CF5C41B809DA23911F6FA /* Pods_Sport_Application_Sport_ApplicationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sport_Application_Sport_ApplicationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		963BCE0887234B4AEBC35DFD /* Pods_Sport_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sport_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,7 +250,7 @@
 			path = Utilites;
 			sourceTree = "<group>";
 		};
-		447CE0402A1A7481008C254D /* Module */ = {
+		447CE0402A1A7481008C254D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				446B18292A1E78EB00691833 /* Favorites */,
@@ -261,7 +263,7 @@
 				4499742B2A168E610074122E /* Main.storyboard */,
 				449974332A168E640074122E /* LaunchScreen.storyboard */,
 			);
-			path = Module;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		447CE0472A1A7F8D008C254D /* LeagueDetails */ = {
@@ -335,6 +337,7 @@
 				447CE04A2A1A8651008C254D /* UpComingEvent.swift */,
 				447CB4312A1D37B4001AB495 /* LatestResult.swift */,
 				447CB4352A1D6690001AB495 /* Teams.swift */,
+				44EAA98A2A2FC1FB002B444A /* TennisPlayers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,7 +388,7 @@
 				447CE0302A1A5C43008C254D /* Services */,
 				446B18332A1EB7DA00691833 /* CoreData */,
 				4484EF212A18F64A0047A61B /* Model */,
-				447CE0402A1A7481008C254D /* Module */,
+				447CE0402A1A7481008C254D /* Modules */,
 				449974252A168E610074122E /* AppDelegate.swift */,
 				449974272A168E610074122E /* SceneDelegate.swift */,
 				449974312A168E640074122E /* Assets.xcassets */,
@@ -790,6 +793,7 @@
 				447CB4342A1D3B5A001AB495 /* LatestEventProtocol.swift in Sources */,
 				44D679472A16DF6200C3FBA6 /* ViewController.swift in Sources */,
 				44C585F62A16C7FA008D3AB0 /* SplashViewController.swift in Sources */,
+				44EAA98B2A2FC1FB002B444A /* TennisPlayers.swift in Sources */,
 				44D679412A16CC5D00C3FBA6 /* AllSportsViewController.swift in Sources */,
 				447CB4322A1D37B4001AB495 /* LatestResult.swift in Sources */,
 				4484EF252A18F6DC0047A61B /* NetworkServices.swift in Sources */,

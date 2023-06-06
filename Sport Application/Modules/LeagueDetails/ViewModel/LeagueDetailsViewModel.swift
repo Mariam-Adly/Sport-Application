@@ -21,6 +21,7 @@ class LeagueDetilsViewModel{
     var bindUpComingListToLeagueDetailsVC :  (()->()) = {}
     var bindLatestEventListToLeagueDetailsVC :  (()->()) = {}
     var bindTeamsListToLeagueDetailsVC :  (()->()) = {}
+    var bindTeamsTennisListToLeagueDetailsVC :  (()->()) = {}
     
     var upComingList  : [UpCommingEvent]? {
         didSet {
@@ -35,6 +36,12 @@ class LeagueDetilsViewModel{
     var teamsList : [Teams]?{
         didSet{
             bindTeamsListToLeagueDetailsVC()
+        }
+    }
+    
+    var playersTennis : [TennisPlayer]? {
+        didSet {
+            bindTeamsTennisListToLeagueDetailsVC()
         }
     }
 
@@ -55,5 +62,12 @@ class LeagueDetilsViewModel{
 
         }
     }
+    
+    func getPlayers(sportName: String, leagueId: Int){
+        NetworkServices.getPlayers(sportName: sportName, leagueId: leagueId) { [weak self] result in
+            self?.playersTennis = result?.result
+        }
+    }
+    
     
 }

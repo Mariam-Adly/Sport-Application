@@ -21,6 +21,7 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     var upComingArr : [UpCommingEvent]?
     var latestArr : [LatestEvent]?
     var teamsArr : [Teams]?
+    var players : [TennisPlayer]?
     
     
     
@@ -84,14 +85,25 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
             }
         }
         
-        leagueDetailsViewModel?.getTeams(sportName: leagueDetailsViewModel?.sportName ?? "", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
-        leagueDetailsViewModel?.bindTeamsListToLeagueDetailsVC = {
+        
+            leagueDetailsViewModel?.getPlayers(sportName: leagueDetailsViewModel?.sportName ?? "", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
+        leagueDetailsViewModel?.bindTeamsTennisListToLeagueDetailsVC = {
             DispatchQueue.main.async {
-                self.teamsArr = self.leagueDetailsViewModel?.teamsList
+                self.players = self.leagueDetailsViewModel?.playersTennis
                 self.teamsC.reloadData()
-            
+                print("mariam\(self.players)")
+                
             }
         }
+          
+      
+            leagueDetailsViewModel?.getTeams(sportName: leagueDetailsViewModel?.sportName ?? "", leagueId: leagueDetailsViewModel?.leagueId ?? 0)
+            leagueDetailsViewModel?.bindTeamsListToLeagueDetailsVC = {
+                DispatchQueue.main.async {
+                    self.teamsArr = self.leagueDetailsViewModel?.teamsList
+                    self.teamsC.reloadData()
+                }
+            }
 
     }
 
@@ -162,7 +174,9 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                  cell.homeTeamName.text = data.event_home_team
                  cell.awatTeamName.text = data.event_away_team
              }
-             return cell         }else if collectionView == latestC{
+             return cell
+             
+         }else if collectionView == latestC{
              let cell = latestC.dequeueReusableCell(withReuseIdentifier: "leagueCell", for: indexPath) as! LeagueDetailCollectionViewCell
         
              let data = latestArr![indexPath.row]
@@ -185,9 +199,18 @@ class LeagueDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                  return cell
          }
          let cell = teamsC.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as! TeamsCollectionViewCell
-         let data = teamsArr![indexPath.row]
-         cell.teamName.text = data.team_name
-         cell.teamLogo.sd_setImage(with: URL(string: data.team_logo ?? ""),placeholderImage: placeHolderImg)
+         if leagueDetailsViewModel?.sportName == "tennis" {
+             let players = players![indexPath.row]
+             print("wafaa\(players.player_name)")
+             cell.teamName.text = players.player_name
+             cell.teamLogo.sd_setImage(with: URL(string: players.player_logo ?? ""),placeholderImage: placeHolderImg)
+         }else{
+             let data = teamsArr![indexPath.row]
+             print("wafaa\(data.team_name)")
+             cell.teamName.text = data.team_name
+             cell.teamLogo.sd_setImage(with: URL(string: data.team_logo ?? ""),placeholderImage: placeHolderImg)
+            
+         }
          return cell
     }
     
